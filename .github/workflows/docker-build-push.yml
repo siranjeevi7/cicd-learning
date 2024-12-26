@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main # Trigger workflow on pushes to the 'main' branch
+      - master # Trigger workflow on pushes to the 'main' branch
 
 jobs:
   build-and-push:
@@ -24,10 +24,10 @@ jobs:
       # Step 3: Build the Docker image
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/my-app:latest .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/reactjs-basic-app:latest .
 
       # Step 4: Push the Docker image to Docker Hub
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/my-app:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/reactjs-basic-app:latest
 
